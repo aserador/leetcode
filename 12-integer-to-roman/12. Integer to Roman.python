@@ -1,0 +1,17 @@
+class Solution(object):
+    def intToRoman(self, num):
+        """
+        :type num: int
+        :rtype: str
+        """
+        nums = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
+        romans = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"]
+        ans = []
+        x = num
+        for i in range(len(nums)):
+            count = x // nums[i]
+            x %= nums[i]
+            while(count > 0):
+                ans.append(romans[i])
+                count -= 1
+        return "".join(ans)
