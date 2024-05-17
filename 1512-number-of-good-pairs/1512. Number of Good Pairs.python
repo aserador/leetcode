@@ -1,0 +1,11 @@
+class Solution(object):
+    def numIdenticalPairs(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        ans = 0
+        hashmap = collections.defaultdict(int)
+        for n in nums:
+            hashmap[n] += 1
+        return sum(map(lambda x: x*(x-1)//2, hashmap.values()))
